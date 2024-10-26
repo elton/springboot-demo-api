@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: springboot-demo-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springboot
+    username: elton
+    password: 04m27d
+  jpa:
+    hibernate:
+      ddl-auto: none      # 禁止自动建表
+      generate-ddl: false # 禁止生成DDL
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    baseline-version: 0
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    com.zaxxer.hikari: DEBUG
+    org.postgresql: DEBUG
